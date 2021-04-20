@@ -1,4 +1,4 @@
-# docker build -f ./web_app_dockerfile_alpine -t web_app_con:1 .
+## docker build -f ./web_app_dockerfile_alpine -t web_app_con:1 .
 # docker run -it -d -p 5000:5000 --name web_app_con web_app_con:1
 
 From alpine:latest
