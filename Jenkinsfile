@@ -6,15 +6,6 @@ pipeline {
     }
     agent { label "agent-exam2" }
     stages { 
-        stage('Cloning Git') { 
-            steps {
-                checkout([
-                    $class: 'GitSCM',
-                    branches: [[ name: "master"]],
-                    userRemoteConfigs: [[ credentialsId: "github_eeo", url:'https://github.com/EfimovEO/student-exam2.git']]
-                ])
-            }
-        }
         stage('Python tests') { 
             steps {
                sh '''
