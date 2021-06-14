@@ -1,4 +1,5 @@
-pipeline { 
+pipeline {
+    logstash {
     environment { 
         registry = "efim4ik/epam_exam-2" 
         registryCredential = 'dockerhub_id' 
@@ -37,5 +38,6 @@ pipeline {
                 sh "docker rmi ${registry}:${docker_Image}" 
             }
         } 
+    }
     }
 }
