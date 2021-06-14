@@ -38,7 +38,7 @@ pipeline {
                 logstash {
                            try {
                                  // do something that fails
-                                 sh "exit 1"
+                                 echo "Im not going to fail"
                                  currentBuild.result = 'SUCCESS'
                                  } catch (Exception err) {
                                  currentBuild.result = 'FAILURE'
