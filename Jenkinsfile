@@ -1,5 +1,4 @@
 pipeline {
-    logstash {
     environment { 
         registry = "efim4ik/epam_exam-2" 
         registryCredential = 'dockerhub_id' 
@@ -36,6 +35,18 @@ pipeline {
         stage('Cleaning up') { 
             steps { 
                 sh "docker rmi ${registry}:${docker_Image}" 
+                logstash {
+      sh'''
+		echo 'Hello, World!'
+	  '''
+      try {
+        // do something that fails
+        sh "exit 1"
+        currentBuild.result = 'SUCCESS'
+	  } catch (Exception err) {
+        currentBuild.result = 'FAILURE'
+      }    
+    }
             }
         } 
     }
