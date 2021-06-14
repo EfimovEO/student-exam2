@@ -36,13 +36,6 @@ pipeline {
             steps { 
                 sh "docker rmi ${registry}:${docker_Image}" 
                 logstash {
-                           try {
-                                 // do something that fails
-                                 echo "Im not going to fail"
-                                 currentBuild.result = 'SUCCESS'
-                                 } catch (Exception err) {
-                                 currentBuild.result = 'FAILURE'
-                                 }
                                  echo "RESULT: ${currentBuild.result}"
                                
                 }
